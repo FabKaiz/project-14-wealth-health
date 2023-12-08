@@ -2,12 +2,13 @@ import './createEmployee.scss'
 import { useDispatch, useSelector } from "react-redux";
 import { addEmployee, reset } from "../../reducer/employeeReducer";
 import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
-import FormCreateEmployee from "../../components/formCreateEmployee/FormCreateEmployee.jsx";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import 'react-datepicker/dist/react-datepicker.css'
-import SuccessModal from "success-modal-oc/dist/successModal.js";
 import useMountTransition from "success-modal-oc/dist/useMountTransition.js";
+
+const SuccessModal = lazy(() => import('success-modal-oc/dist/successModal.js'))
+const FormCreateEmployee = lazy(() => import('../../components/formCreateEmployee/FormCreateEmployee.jsx'))
 
 const CreateEmployee = () => {
   const dispatch = useDispatch();
@@ -33,22 +34,26 @@ const CreateEmployee = () => {
   return (
       <main className="main create-employee">
         <h2>Create Employee</h2>
-
-        <FormCreateEmployee
-            handleSubmit={handleSubmit}
-            control={control}
-            saveEmployee={saveEmployee}
-            loading={loading}
-            error={error}
-        />
+        <Suspense fallback={<div className='loading'>Loading...</div>}>
+          <FormCreateEmployee
+              handleSubmit={handleSubmit}
+              control={control}
+              saveEmployee={saveEmployee}
+              loading={loading}
+              error={error}
+          />
+        </Suspense>
 
         {(hasTransitionedIn || isSuccessModalOpen) &&
-            <SuccessModal
-                text='Employee successfully added!'
-                isSuccessModalOpen={isSuccessModalOpen}
-                setIsSuccessModalOpen={setIsSuccessModalOpen}
-                hasTransitionedIn={hasTransitionedIn}
-            />}
+            <Suspense>
+              <SuccessModal
+                  text='Employee successfully added!'
+                  isSuccessModalOpen={isSuccessModalOpen}
+                  setIsSuccessModalOpen={setIsSuccessModalOpen}
+                  hasTransitionedIn={hasTransitionedIn}
+              />
+            </Suspense>
+        }
 
         <Link to={'/employee-list'} className='link'>
           Employee List

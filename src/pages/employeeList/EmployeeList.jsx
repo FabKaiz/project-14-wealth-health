@@ -1,5 +1,7 @@
 import './employeeList.scss'
 import { Link } from "react-router-dom";
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
 
 const EmployeeList = () => {
 
