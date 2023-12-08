@@ -18,3 +18,6 @@ React Hook Form : https://react-hook-form.com/
 
 - ### Date
 React Date Picker : https://reactdatepicker.com/
+
+- ### Table
+- PrimeReact : https://primereact.org/datatable/
