@@ -1,14 +1,9 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy } from 'react'
 import ReactDOM from 'react-dom/client'
 import {
   createBrowserRouter, createRoutesFromElements, Route,
   RouterProvider
 } from "react-router-dom";
-
-// import Root from "./routes/root";
-// import Error from "./pages/error/Error.jsx";
-// import Layout from "./pages/Layout.jsx";
-// import EmployeeList from "./pages/employeeList/EmployeeList.jsx";
 
 const Root = lazy(() => import('./routes/root'))
 const Error = lazy(() => import('./pages/error/Error.jsx'))

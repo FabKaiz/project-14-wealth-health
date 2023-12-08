@@ -33,31 +33,35 @@ const CreateEmployee = () => {
 
   return (
       <main className="main create-employee">
-        <h2>Create Employee</h2>
-        <Suspense fallback={<div className='loading'>Loading...</div>}>
-          <FormCreateEmployee
-              handleSubmit={handleSubmit}
-              control={control}
-              saveEmployee={saveEmployee}
-              loading={loading}
-              error={error}
-          />
-        </Suspense>
+        <div className="create-employee__wrapper">
+          <h1>- HRnet -</h1>
+          <h2>Create Employee</h2>
+          <Suspense fallback={<div className='loading'>Loading...</div>}>
+            <FormCreateEmployee
+                handleSubmit={handleSubmit}
+                control={control}
+                saveEmployee={saveEmployee}
+                loading={loading}
+                error={error}
+            />
+          </Suspense>
 
-        {(hasTransitionedIn || isSuccessModalOpen) &&
-            <Suspense>
-              <SuccessModal
-                  text='Employee successfully added!'
-                  isSuccessModalOpen={isSuccessModalOpen}
-                  setIsSuccessModalOpen={setIsSuccessModalOpen}
-                  hasTransitionedIn={hasTransitionedIn}
-              />
-            </Suspense>
-        }
+          {(hasTransitionedIn || isSuccessModalOpen) &&
+              <Suspense>
+                <SuccessModal
+                    text='Employee successfully added!'
+                    isSuccessModalOpen={isSuccessModalOpen}
+                    setIsSuccessModalOpen={setIsSuccessModalOpen}
+                    hasTransitionedIn={hasTransitionedIn}
+                />
+              </Suspense>
+          }
 
-        <Link to={'/employee-list'} className='link'>
-          Employee List
-        </Link>
+          <Link to={'/employee-list'} className='link'>
+            Employee List
+          </Link>
+        </div>
+
       </main>
   )
 }
