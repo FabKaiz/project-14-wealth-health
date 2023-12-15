@@ -1,4 +1,15 @@
-# React + Vite
+# Project 14 HRnet
+
+### Project goals:
+- ``Convert and old JQUERY project to React``
+  - [React project](https://fc-p14-oc.netlify.app/)
+  - [Old Jquery project deploy](https://fc-p14-oc-jquery.netlify.app/)
+
+- ``Create an npm package``
+
+- ``Convert Jquery library to React component``
+
+- ``Produce technical documentation for an application``
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
