@@ -32,3 +32,6 @@ React Date Picker : https://reactdatepicker.com/
 
 - ### Table
 - PrimeReact : https://primereact.org/datatable/
+
+- ### Modal (my own npm package)
+- success-modal-oc : https://www.npmjs.com/package/success-modal-oc
